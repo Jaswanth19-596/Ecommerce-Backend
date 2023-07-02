@@ -21,6 +21,10 @@ connectDB();
 // Server object
 const app = express();
 
+// Increasing payload limit for transactions
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
 // Middlewares
 app.use(cors()); // Cross origin resource sharing
 app.use(morgan('dev'));
